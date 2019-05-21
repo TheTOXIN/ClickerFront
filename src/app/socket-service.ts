@@ -20,4 +20,8 @@ export class SocketService {
             this.stomp.subscribe('/user/queue/clicker', click => alert(click));
         });
     }
+
+    public create(name: string) {
+        this.stomp.send('/app/create', {}, name);
+    }
 }

@@ -16,8 +16,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private router: Router,
-    private socketService: SocketService
+    private socketService: SocketService,
+    private router: Router
   ) {
     this.initializeApp();
   }
@@ -27,6 +27,8 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.socketService.connect();
+
+      this.go('/start');
     });
   }
 
