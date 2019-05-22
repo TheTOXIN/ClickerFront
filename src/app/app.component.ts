@@ -4,7 +4,9 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import {Router} from '@angular/router';
-import {SocketService} from './socket-service';
+import {CONST} from './constants/CONST';
+import {User} from './models/User';
+import {SocketService} from './services/socket-service';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +18,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private socketService: SocketService,
-    private router: Router
+    private router: Router,
+    private scoket: SocketService
   ) {
     this.initializeApp();
   }
@@ -26,13 +28,18 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.socketService.connect();
 
-      this.go('/start');
+      this.go();
     });
   }
 
-  public go(url: string) {
-    this.router.navigateByUrl(url);
+  public go() {
+    const user: User = JSON.parse(localStorage.getItem(CONST.KEY));
+
+    if (user != null) {
+      this.scoket.connect(user);
+    }
+
+    this.router.navigateByUrl('/start');
   }
 }

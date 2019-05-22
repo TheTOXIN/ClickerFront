@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {SocketService} from '../socket-service';
+import {HttpService} from '../../services/http-service';
+import {CONST} from '../../constants/CONST';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-start',
@@ -8,10 +10,11 @@ import {SocketService} from '../socket-service';
 })
 export class StartPage implements OnInit {
 
-  name: string;
+  public name: string;
 
   constructor(
-      private socket: SocketService
+      private http: HttpService,
+      private router: Router
   ) {
   }
 
@@ -23,6 +26,9 @@ export class StartPage implements OnInit {
     if (this.name.length < 3) { return; }
     if (this.name.length > 30) { return; }
 
-    this.socket.create(this.name);
+    this.http.create(this.name).subscribe(user => {
+        localStorage.setItem(CONST.KEY, JSON.stringify(user));
+        this.router.navigateByUrl('/connect');
+    });
   }
 }

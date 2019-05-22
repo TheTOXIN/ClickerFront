@@ -1,0 +1,7 @@
+<ion-content>
+  <p>{{user?.name}}</p>
+  <div>{{user.id}}</div>
+  <ion-input [(ngModel)]="data"></ion-input>
+  <ion-button (click)="scan()">СКАНИРОВАТЬ</ion-button>
+  <ion-icon *ngIf="isScan" name="checkmark"></ion-icon>
+</ion-content>
