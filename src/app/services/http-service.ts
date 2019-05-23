@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {User} from '../models/User';
 import {API} from '../constants/API';
 import {UUID} from 'angular2-uuid';
+import {State} from '../models/State';
 
 @Injectable()
 export class HttpService {
@@ -28,6 +29,12 @@ export class HttpService {
     public register(from: UUID, to: UUID) {
         return this.http
             .post(API.URL + '/register', {from, to})
+            .pipe();
+    }
+
+    public state(user: User) {
+        return this.http
+            .get<State>(API.URL + '/state/' + user.id)
             .pipe();
     }
 }

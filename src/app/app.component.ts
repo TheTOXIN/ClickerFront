@@ -38,8 +38,9 @@ export class AppComponent {
 
     if (user != null) {
       this.scoket.connect(user);
+      this.router.navigateByUrl('/clicker');
+    } else {
+      this.router.navigateByUrl('/start');
     }
-
-    this.router.navigateByUrl('/start');
   }
 }

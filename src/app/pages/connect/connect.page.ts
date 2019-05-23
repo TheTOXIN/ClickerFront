@@ -29,6 +29,8 @@ export class ConnectPage implements OnInit {
 
   scan() {
     if (this.data == null) { return; }
+    if (this.isScan) { return; }
+
     this.http.register(this.user.id, this.data).subscribe(() => {
       this.isScan = true;
     });
