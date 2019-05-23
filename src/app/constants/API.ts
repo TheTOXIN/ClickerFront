@@ -1,3 +1,3 @@
 export enum API {
-    URL = 'http://localhost:8080'
+    URL = 'http://192.168.10.54:8080'
 }
