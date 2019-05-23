@@ -9,3 +9,40 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+.content {
+  text-align: center;
+}
+
+.warp {
+  display: flex;
+  flex-flow: column-reverse;
+  height: 100%;
+}
+
+.warp-head {
+  width: 100%;
+  height: 25%;
+}
+
+.warp-body {
+  width: 100%;
+  height: 50%;
+}
+
+.warp-foot {
+  width: 100%;
+  height: 25%;
+}
+
+.my-button {
+  margin-top: 50px;
+  --border-radius: 15px;
+  width: 200px;
+  height: 50px;
+  font-size: 24px;
+}
+
+.my-title {
+  font-size: 64px;
+}

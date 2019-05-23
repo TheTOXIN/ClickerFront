@@ -1,11 +1,11 @@
-<ion-content>
-  <div *ngIf="!isLoad">
-    <ion-spinner></ion-spinner>
-  </div>
+<ion-content class="content">
+  <div *ngIf="!isLoad"><ion-spinner></ion-spinner></div>
   <div *ngIf="isLoad">
+
     <h1>{{state.name}}</h1>
     <p>{{state.meCount + (socket.clickerObservable | async)}}</p>
-    <ion-button (click)="click()">КЛИК</ion-button>
+    <ion-button (click)="click()">CLICK</ion-button>
     <p>{{state.myCount}}</p>
+
   </div>
 </ion-content>

@@ -1,5 +1,13 @@
-<ion-content>
-    <p>ТВОЁ ИМЯ?<p>
-    <ion-input type="text" minlength="3" maxlength="30" [(ngModel)]="name"></ion-input>
-    <ion-button (click)="done()">ГОТОВО</ion-button>
+<ion-content class="content">
+    <div class="warp">
+        <div class="warp-foot">
+            <ion-button class="my-button " (click)="done()">DONE</ion-button>
+        </div>
+        <div class="warp-body">
+            <ion-input class="start-input" placeholder="..." type="text" minlength="3" maxlength="30" [(ngModel)]="name"></ion-input>
+        </div>
+        <div class="warp-head">
+            <p class="my-title">INPUT NAME<p>
+        </div>
+    </div>
 </ion-content>

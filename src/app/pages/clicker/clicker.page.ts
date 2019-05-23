@@ -40,6 +40,10 @@ export class ClickerPage implements OnInit {
     this.socket.click(this.user.token);
   }
 
+  tester() {
+      alert('asdasd');
+  }
+
   back() {
       this.router.navigateByUrl('/start');
       window.location.reload();
