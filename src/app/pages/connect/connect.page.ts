@@ -3,6 +3,7 @@ import {SocketService} from '../../services/socket-service';
 import {User} from '../../models/User';
 import {CONST} from '../../constants/CONST';
 import {HttpService} from '../../services/http-service';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-connect',
@@ -19,6 +20,7 @@ export class ConnectPage implements OnInit {
   constructor(
       private socket: SocketService,
       private http: HttpService,
+      private scanner: BarcodeScanner
   ) {
       this.user = JSON.parse(localStorage.getItem(CONST.KEY));
   }
@@ -27,12 +29,32 @@ export class ConnectPage implements OnInit {
      this.socket.connect(this.user);
   }
 
-  scan() {
+  connect() {
     if (this.data == null) { return; }
     if (this.isScan) { return; }
 
     this.http.register(this.user.id, this.data).subscribe(() => {
       this.isScan = true;
+    });
+  }
+
+  copy() {
+      const selBox = document.createElement('textarea');
+      selBox.style.position = 'fixed';
+      selBox.style.left = '0';
+      selBox.style.top = '0';
+      selBox.style.opacity = '0';
+      selBox.value = this.user.id;
+      document.body.appendChild(selBox);
+      selBox.focus();
+      selBox.select();
+      document.execCommand('copy');
+      document.body.removeChild(selBox);
+  }
+
+  scan() {
+    this.scanner.scan().then(data => {
+      this.data = data.text;
     });
   }
 }

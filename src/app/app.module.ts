@@ -12,7 +12,6 @@ import {SocketService} from './services/socket-service';
 import {HttpService} from './services/http-service';
 import {HttpClientModule} from '@angular/common/http';
 
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -29,6 +28,8 @@ import {HttpClientModule} from '@angular/common/http';
     HttpService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+      AppComponent
+  ]
 })
 export class AppModule {}

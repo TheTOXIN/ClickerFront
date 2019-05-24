@@ -1,40 +1,30 @@
 <ion-content class="content">
     <div class="warp">
         <div class="warp-foot">
-            <ion-button class="my-button" (click)="scan()">
-                <div *ngIf="!isScan">SCAN</div>
+            <ion-button class="my-button" (click)="connect()">
+                <div *ngIf="!isScan">CONNECT</div>
                 <ion-icon *ngIf="isScan" name="checkmark"></ion-icon>
             </ion-button>
         </div>
         <div class="warp-body">
-            <div class="connect-row">
-                <div class="connect-row-cell">
-                    <p class="data-text">{{user.id}}</p>
-                </div>
-                <div class="connect-row-btn">
-                    <ion-button class="icon-button">
-                        <ion-icon name="copy"></ion-icon>
-                    </ion-button>
-                </div>
+
+            <p class="data-text">ID: {{user.id}}</p>
+            <ion-button class="icon-button" (click)="copy()">
+                <ion-icon name="copy"></ion-icon>
+            </ion-button>
+
+            <div class="data-qr">
+                <ngx-qrcode [(qrc-value)]="user.id"></ngx-qrcode>
             </div>
 
-            <div>
-                <!--QR CODE-->
-            </div>
+            <ion-button class="icon-button" (click)="scan()">
+                <ion-icon name="camera"></ion-icon>
+            </ion-button>
+            <ion-input class="data-input" placeholder="ID" [(ngModel)]="data" #input></ion-input>
 
-            <div class="connect-row">
-            <div class="connect-row-cell">
-                <ion-input class="data-input" [(ngModel)]="data" #input></ion-input>
-            </div>
-            <div class="connect-row-btn">
-                <ion-button class="icon-button">
-                    <ion-icon name="camera"></ion-icon>
-                </ion-button>
-            </div>
-            </div>
         </div>
         <div class="warp-head">
-            <p class="my-title">{{user?.name}}</p>
+            <span class="my-title">{{user?.name}}</span>
         </div>
     </div>
 </ion-content>
