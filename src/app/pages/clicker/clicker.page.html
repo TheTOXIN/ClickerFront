@@ -4,10 +4,12 @@
     
     <div class="warp">
       <div class="warp-foot">
+        <div *ngFor="let particle of myParticles">
+          <img @particleMyState class="particles" src="assets/img/click.png">
+        </div>
         <div class="user-state">
           <div class="user-img" (click)="click($event)">
-            <img src="assets/img/click.png"
-                 [@clickState]='state.myCount'>
+            <img src="assets/img/click.png" [@clickState]='state.myCount'>
           </div>
           <span>{{state.myName}}</span>
           <span> - {{state.myCount}}</span>
@@ -16,8 +18,7 @@
 
       <div class="warp-body">
         <div class="click-img">
-          <img src="assets/img/click.png"
-               [style.width.px]="(100 / maxClick) * (state.myCount + state.meCount)">
+          <img src="assets/img/click.png" [style.width.px]="(100 / maxClick) * (state.myCount + state.meCount)">
         </div>
       </div>
 
@@ -26,9 +27,11 @@
           <span>{{state.meName}}</span>
           <span> - {{state.meCount}}</span>
           <div class="user-img">
-            <img src="assets/img/click.png"
-                 [@clickState]='state.meCount'>
+            <img src="assets/img/click.png" [@clickState]='state.meCount'>
           </div>
+        </div>
+        <div *ngFor="let particle of meParticles">
+          <img @particleMeState class="particles" src="assets/img/click.png">
         </div>
       </div>
     </div>
