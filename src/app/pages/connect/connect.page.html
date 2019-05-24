@@ -1,18 +1,40 @@
 <ion-content class="content">
-  <div class="warp">
-    <div class="warp-foot">
-      <ion-button class="my-button" (click)="scan()">
-        <div *ngIf="!isScan">SCAN</div>
-        <ion-icon *ngIf="isScan" name="checkmark"></ion-icon>
-      </ion-button>
+    <div class="warp">
+        <div class="warp-foot">
+            <ion-button class="my-button" (click)="scan()">
+                <div *ngIf="!isScan">SCAN</div>
+                <ion-icon *ngIf="isScan" name="checkmark"></ion-icon>
+            </ion-button>
+        </div>
+        <div class="warp-body">
+            <div class="connect-row">
+                <div class="connect-row-cell">
+                    <p class="data-text">{{user.id}}</p>
+                </div>
+                <div class="connect-row-btn">
+                    <ion-button class="icon-button">
+                        <ion-icon name="copy"></ion-icon>
+                    </ion-button>
+                </div>
+            </div>
+
+            <div>
+                <!--QR CODE-->
+            </div>
+
+            <div class="connect-row">
+            <div class="connect-row-cell">
+                <ion-input class="data-input" [(ngModel)]="data" #input></ion-input>
+            </div>
+            <div class="connect-row-btn">
+                <ion-button class="icon-button">
+                    <ion-icon name="camera"></ion-icon>
+                </ion-button>
+            </div>
+            </div>
+        </div>
+        <div class="warp-head">
+            <p class="my-title">{{user?.name}}</p>
+        </div>
     </div>
-    <div class="warp-body" (click)="tester()">
-      <span>{{user.id}}</span>
-      <ion-input [(ngModel)]="data" #input></ion-input>
-      <ion-icon name="copy"></ion-icon>
-    </div>
-    <div class="warp-head">
-      <p class="my-title">{{user?.name}}</p>
-    </div>
-  </div>
 </ion-content>
