@@ -16,26 +16,25 @@ export class ClickerPage implements OnInit {
   public user: User;
   public state: State;
 
+  maxClick = 1000;
   isLoad = false;
 
   constructor(
     public socket: SocketService,
     private http: HttpService,
-    private router: Router,
   ) {
     this.user = JSON.parse(localStorage.getItem(CONST.KEY));
   }
 
   ngOnInit() {
     this.http.state(this.user).subscribe(state => {
-      console.log('STATE - ' + state);
       if (state == null) { this.back(); }
       this.state = state;
       this.isLoad = true;
     });
   }
 
-  click() {
+  click(event) {
     this.state.myCount++;
     this.socket.click(this.user.token);
   }
