@@ -6,7 +6,8 @@
       <div class="warp-foot">
         <div class="user-state">
           <div class="user-img" (click)="click($event)">
-            <img src="assets/img/click.png">
+            <img src="assets/img/click.png"
+                 [@clickState]='state.myCount'>
           </div>
           <span>{{state.myName}}</span>
           <span> - {{state.myCount}}</span>
@@ -25,7 +26,8 @@
           <span>{{state.meName}}</span>
           <span> - {{state.meCount + (socket.clickerObservable | async)}}</span>
           <div class="user-img">
-            <img src="assets/img/click.png">
+            <img src="assets/img/click.png"
+                 [@clickState]='(socket.clickerObservable | async)'>
           </div>
         </div>
       </div>

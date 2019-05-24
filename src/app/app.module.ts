@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {SocketService} from './services/socket-service';
 import {HttpService} from './services/http-service';
 import {HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
       HttpClientModule,
       BrowserModule,
+      BrowserAnimationsModule,
       IonicModule.forRoot(),
       AppRoutingModule
   ],

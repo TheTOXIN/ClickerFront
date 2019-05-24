@@ -1,15 +1,27 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SocketService} from '../../services/socket-service';
 import {User} from '../../models/User';
 import {CONST} from '../../constants/CONST';
 import {HttpService} from '../../services/http-service';
-import {Router} from '@angular/router';
 import {State} from '../../models/State';
+import {animate, animation, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
 
 @Component({
   selector: 'app-clicker',
   templateUrl: './clicker.page.html',
   styleUrls: ['./clicker.page.scss'],
+  animations: [
+      trigger('clickState', [
+          transition('* => *', [
+              style({ transform: 'scale(1)' }),
+              animate(200, keyframes([
+                  style({ transform: 'scale(1)', offset: 0 }),
+                  style({ transform: 'scale(1.5)', offset: 0.5 }),
+                  style({ transform: 'scale(1)', offset: 1 })
+              ]))
+          ])
+      ]),
+  ]
 })
 export class ClickerPage implements OnInit {
 
