@@ -42,7 +42,14 @@ export class ClickerPage implements OnInit {
     this.http.state(this.user).subscribe(state => {
       if (state == null) { this.back(); }
       this.state = state;
+      this.eventer();
       this.isLoad = true;
+    });
+  }
+
+  eventer() {
+    this.socket.clickerObservable.subscribe(() => {
+        this.state.meCount++;
     });
   }
 

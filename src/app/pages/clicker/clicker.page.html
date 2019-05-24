@@ -17,17 +17,17 @@
       <div class="warp-body">
         <div class="click-img">
           <img src="assets/img/click.png"
-               [style.width.px]="(100 / maxClick) * (state.myCount + (state.meCount + (socket.clickerObservable | async)))">
+               [style.width.px]="(100 / maxClick) * (state.myCount + state.meCount)">
         </div>
       </div>
 
       <div class="warp-head">
         <div class="user-state">
           <span>{{state.meName}}</span>
-          <span> - {{state.meCount + (socket.clickerObservable | async)}}</span>
+          <span> - {{state.meCount}}</span>
           <div class="user-img">
             <img src="assets/img/click.png"
-                 [@clickState]='(socket.clickerObservable | async)'>
+                 [@clickState]='state.meCount'>
           </div>
         </div>
       </div>
