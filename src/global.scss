@@ -15,9 +15,11 @@
 }
 
 .warp {
+  height: 100%;
+  width: 100%;
+  position: absolute;
   display: flex;
   flex-flow: column-reverse;
-  height: 100%;
 }
 
 .warp-head {

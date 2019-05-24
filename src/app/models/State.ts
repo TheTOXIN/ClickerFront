@@ -1,6 +1,7 @@
 export class State {
     constructor(
-        public name: string,
+        public meName: string,
+        public myName: string,
         public meCount,
         public myCount,
     ) {

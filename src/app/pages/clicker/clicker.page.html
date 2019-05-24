@@ -1,11 +1,37 @@
 <ion-content class="content">
   <div *ngIf="!isLoad"><ion-spinner></ion-spinner></div>
   <div *ngIf="isLoad">
+    
+    <div class="warp">
+      <div class="warp-foot">
+        <div class="user-state">
+          <!--TODO CLICK EVENT-->
+          <div class="user-img">
+            <img src="assets/img/click.png">
+          </div>
+          <span>{{state.myName}}</span>
+           -
+          <span>{{state.myCount}}</span>
+        </div>
+      </div>
 
-    <h1>{{state?.name}}</h1>
-    <p>{{state?.meCount + (socket.clickerObservable | async)}}</p>
-    <ion-button (click)="click()">CLICK</ion-button>
-    <p>{{state?.myCount}}</p>
+      <div class="warp-body">
+        <div class="click-img">
+          <img src="assets/img/click.png">
+        </div>
+      </div>
+
+      <div class="warp-head">
+        <div class="user-state">
+          <span>{{state.meName}}</span>
+          -
+          <span>{{state.meCount}}</span>
+          <div class="user-img" (click)="click()">
+            <img src="assets/img/click.png">
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 </ion-content>
