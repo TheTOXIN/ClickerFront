@@ -12,6 +12,8 @@ export class StartPage implements OnInit {
 
   public name: string;
 
+  isLoad = false;
+
   constructor(
       private http: HttpService,
       private router: Router
@@ -24,7 +26,9 @@ export class StartPage implements OnInit {
   public done() {
     if (this.name == null) { return; }
     if (this.name.length < 3) { return; }
-    if (this.name.length > 30) { return; }
+    if (this.name.length > 10) { return; }
+
+    this.isLoad = true;
 
     this.http.create(this.name).subscribe(user => {
         localStorage.setItem(CONST.KEY, JSON.stringify(user));

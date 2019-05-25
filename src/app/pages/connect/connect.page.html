@@ -2,8 +2,9 @@
     <div class="warp">
         <div class="warp-foot">
             <ion-button class="my-button" (click)="connect()">
-                <div *ngIf="!isScan">CONNECT</div>
+                <div *ngIf="!isScan && !isLoad">CONNECT</div>
                 <ion-icon *ngIf="isScan" name="checkmark"></ion-icon>
+                <ion-spinner *ngIf="isLoad"></ion-spinner>
             </ion-button>
         </div>
         <div class="warp-body">

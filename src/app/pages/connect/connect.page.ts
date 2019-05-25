@@ -16,6 +16,7 @@ export class ConnectPage implements OnInit {
   public data: string;
 
   isScan = false;
+  isLoad = false;
 
   constructor(
       private socket: SocketService,
@@ -33,8 +34,11 @@ export class ConnectPage implements OnInit {
     if (this.data == null) { return; }
     if (this.isScan) { return; }
 
+    this.isLoad = true;
+
     this.http.register(this.user.id, this.data).subscribe(() => {
       this.isScan = true;
+      this.isLoad = false;
     });
   }
 

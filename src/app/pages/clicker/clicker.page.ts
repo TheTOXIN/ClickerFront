@@ -37,6 +37,8 @@ import {animate, animation, keyframes, state, style, transition, trigger, useAni
 })
 export class ClickerPage implements OnInit {
 
+    private tmpCount = 0;
+
     public user: User;
     public state: State;
 
@@ -59,14 +61,16 @@ export class ClickerPage implements OnInit {
         this.http.state(this.user).subscribe(state => {
             if (state == null) { this.back(); }
             this.state = state;
+            this.tmpCount = this.state.meCount;
             this.eventer();
             this.isLoad = true;
         });
     }
 
     eventer() {
-        this.socket.clickerObservable.subscribe(() => {
-            this.state.meCount++;
+        this.socket.clickerObservable.subscribe((count) => {
+            if (count === 0) { return; }
+            this.state.meCount = this.tmpCount + count;
 
             if (this.meParticles.length === this.batchClick) { this.meParticles = []; }
             this.meParticles.push(this.state.meCount);

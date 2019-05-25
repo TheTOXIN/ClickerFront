@@ -1,7 +1,10 @@
 <ion-content class="content">
     <div class="warp">
         <div class="warp-foot">
-            <ion-button class="my-button " (click)="done()">START</ion-button>
+            <ion-button class="my-button " (click)="done()">
+                <div *ngIf="!isLoad">START</div>
+                <ion-spinner *ngIf="isLoad"></ion-spinner>
+            </ion-button>
         </div>
         <div class="warp-body">
             <ion-input class="start-input" placeholder="..." type="text" minlength="3" maxlength="30" [(ngModel)]="name"></ion-input>
