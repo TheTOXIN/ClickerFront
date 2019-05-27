@@ -12,6 +12,7 @@
 
 .content {
   text-align: center;
+  border: 5px dashed #383a3e;
 }
 
 .warp {
@@ -45,8 +46,14 @@
   font-size: 24px;
 }
 
+.my-button-color {
+  --background: linear-gradient(to right, #e54699, #e93b8a, #eb307b, #ec256b, #eb1b5a);
+}
+
 .my-title {
+  font-family: 'Neucha', cursive;
   font-size: 64px;
+  margin-top: 30px;
 }
 
 .loader-wrapper {

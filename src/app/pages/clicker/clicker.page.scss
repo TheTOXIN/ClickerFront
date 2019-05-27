@@ -14,6 +14,7 @@
 }
 
 .user-img {
+  margin: 5px;
   img {
     width: 64px;
     height: 64px;
@@ -43,7 +44,7 @@
 }
 
 .border-click {
-  border: 5px solid #4a8af9;
+  border: 5px solid #383a3e;
   position: absolute;
   width: 100%;
   height: 120px;
@@ -58,4 +59,8 @@
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   z-index: -1;
   bottom: -5px;
+}
+
+.clicker-name {
+  font-family: 'Neucha', cursive;
 }

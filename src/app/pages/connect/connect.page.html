@@ -1,8 +1,8 @@
 <ion-content class="content">
     <div class="warp">
         <div class="warp-foot">
-            <ion-button class="my-button" (click)="connect()">
-                <div *ngIf="!isScan && !isLoad">CONNECT</div>
+            <ion-button class="my-button my-button-color" (click)="connect()">
+                <div *ngIf="!isScan && !isLoad">ГОТОВО</div>
                 <ion-icon *ngIf="isScan" name="checkmark"></ion-icon>
                 <ion-spinner *ngIf="isLoad"></ion-spinner>
             </ion-button>
@@ -10,7 +10,7 @@
         <div class="warp-body">
 
             <p class="data-text">ID: {{user.id}}</p>
-            <ion-button class="icon-button" (click)="copy()">
+            <ion-button class="icon-button my-button-color" (click)="copy()">
                 <ion-icon name="copy"></ion-icon>
             </ion-button>
 
@@ -18,14 +18,14 @@
                 <ngx-qrcode [(qrc-value)]="user.id"></ngx-qrcode>
             </div>
 
-            <ion-button class="icon-button" (click)="scan()">
+            <ion-button class="icon-button my-button-color" (click)="scan()">
                 <ion-icon name="camera"></ion-icon>
             </ion-button>
             <ion-input class="data-input" placeholder="ID" [(ngModel)]="data" #input></ion-input>
 
         </div>
         <div class="warp-head">
-            <span class="my-title">{{user?.name}}</span>
+            <p class="my-title">{{user?.name}}</p>
         </div>
     </div>
 </ion-content>

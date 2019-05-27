@@ -1,8 +1,8 @@
 <ion-content class="content">
     <div class="warp">
         <div class="warp-foot">
-            <ion-button class="my-button " (click)="done()">
-                <div *ngIf="!isLoad">START</div>
+            <ion-button class="my-button my-button-color" (click)="done()">
+                <div *ngIf="!isLoad">НАЧАТЬ</div>
                 <ion-spinner *ngIf="isLoad"></ion-spinner>
             </ion-button>
         </div>
@@ -10,7 +10,7 @@
             <ion-input class="start-input" placeholder="..." type="text" minlength="3" maxlength="30" [(ngModel)]="name"></ion-input>
         </div>
         <div class="warp-head">
-            <span class="my-title">INPUT NAME</span>
+            <p class="my-title">ТВОЁ ИМЯ?</p>
         </div>
     </div>
 </ion-content>

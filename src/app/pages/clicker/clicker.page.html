@@ -12,7 +12,7 @@
           <div class="user-img">
             <img src="assets/img/click.png" (click)="click($event)" [@clickState]='state.myCount'>
           </div>
-          <span>{{state.myName}}</span>
+          <span class="clicker-name">{{state.myName}}</span>
           <span> - {{state.myCount}}</span>
         </div>
       </div>
@@ -25,7 +25,7 @@
 
       <div class="warp-head">
         <div class="user-state-me">
-          <span>{{state.meName}}</span>
+          <span class="clicker-name">{{state.meName}}</span>
           <span> - {{state.meCount}}</span>
           <div class="user-img">
             <img src="assets/img/click.png" [@clickState]='state.meCount'>
