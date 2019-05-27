@@ -20,8 +20,15 @@
   }
 }
 
-.user-state {
+.user-state-me {
   margin-top: 15px;
+}
+
+.user-state-my {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5px;
 }
 
 .particles {

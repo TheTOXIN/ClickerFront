@@ -8,9 +8,9 @@
         <div *ngFor="let particle of myParticles">
           <img @particleMyState class="particles" src="assets/img/click.png">
         </div>
-        <div>
-          <div class="user-img" (click)="click($event)">
-            <img src="assets/img/click.png" [@clickState]='state.myCount'>
+        <div class="user-state-my">
+          <div class="user-img">
+            <img src="assets/img/click.png" (click)="click($event)" [@clickState]='state.myCount'>
           </div>
           <span>{{state.myName}}</span>
           <span> - {{state.myCount}}</span>
@@ -24,7 +24,7 @@
       </div>
 
       <div class="warp-head">
-        <div class="user-state">
+        <div class="user-state-me">
           <span>{{state.meName}}</span>
           <span> - {{state.meCount}}</span>
           <div class="user-img">
